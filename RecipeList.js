@@ -3,8 +3,7 @@ import React from "react";
 function RecipeList({ recipes, deleteRecipe }) {
   return (
     <section className="mt-3">
-      <table className="table table-striped caption-top mb-0">
-        <caption>{recipes.length} recipes listed.</caption>
+      <table className="table table-striped table-bordered">
         <thead>
           <tr className="text-center">
             <th>Name</th>
@@ -19,18 +18,18 @@ function RecipeList({ recipes, deleteRecipe }) {
           {recipes.length ? (
             recipes.map((recipe, index) => (
               <tr key={index}>
-                <td>{recipe.name}</td>
-                <td>{recipe.cuisine}</td>
-                <td>
+                <td className="align-middle">{recipe.name}</td>
+                <td className="align-middle">{recipe.cuisine}</td>
+                <td className="align-middle">
                   <img
                     src={recipe.photo}
                     alt="Recipe"
                     style={{ width: "100px", height: "100px", objectFit: "cover" }}
                   />
                 </td>
-                <td>{recipe.ingredients}</td>
-                <td>{recipe.preparation}</td>
-                <td>
+                <td className="align-middle small">{recipe.ingredients}</td>
+                <td className="align-middle small">{recipe.preparation}</td>
+                <td className="align-middle">
                   <button
                     name="delete"
                     className="btn btn-danger"
@@ -55,3 +54,4 @@ function RecipeList({ recipes, deleteRecipe }) {
 }
 
 export default RecipeList;
+
