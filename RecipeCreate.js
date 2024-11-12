@@ -6,16 +6,16 @@ function RecipeCreate({ addRecipe }) {
     cuisine: "",
     photo: "",
     ingredients: "",
-    preparation: "",
+    preparation: ""
   };
-  
+
   const [formData, setFormData] = useState(initialFormState);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -27,64 +27,68 @@ function RecipeCreate({ addRecipe }) {
 
   return (
     <form name="create" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <input
-          type="text"
-          name="name"
-          placeholder="Recipe Name"
-          className="form-control"
-          onChange={handleChange}
-          value={formData.name}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          name="cuisine"
-          placeholder="Cuisine Type"
-          className="form-control"
-          onChange={handleChange}
-          value={formData.cuisine}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="url"
-          name="photo"
-          placeholder="Photo URL"
-          className="form-control"
-          onChange={handleChange}
-          value={formData.photo}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <textarea
-          name="ingredients"
-          placeholder="Ingredients"
-          className="form-control"
-          onChange={handleChange}
-          value={formData.ingredients}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <textarea
-          name="preparation"
-          placeholder="Preparation Steps"
-          className="form-control"
-          onChange={handleChange}
-          value={formData.preparation}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary mt-2">
-        Create
-      </button>
+      <table className="table table-bordered">
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                onChange={handleChange}
+                value={formData.name}
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                name="cuisine"
+                placeholder="Cuisine"
+                onChange={handleChange}
+                value={formData.cuisine}
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="url"
+                name="photo"
+                placeholder="URL"
+                onChange={handleChange}
+                value={formData.photo}
+                required
+              />
+            </td>
+            <td>
+              <textarea
+                name="ingredients"
+                placeholder="Ingredients"
+                onChange={handleChange}
+                value={formData.ingredients}
+                required
+              />
+            </td>
+            <td>
+              <textarea
+                name="preparation"
+                placeholder="Preparation"
+                onChange={handleChange}
+                value={formData.preparation}
+                required
+              />
+            </td>
+            <td>
+              <button type="submit" className="btn btn-primary">
+                Create
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </form>
   );
 }
 
 export default RecipeCreate;
+
